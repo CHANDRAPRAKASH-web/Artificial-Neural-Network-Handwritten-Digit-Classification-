@@ -13,9 +13,9 @@ x_test = x_test / 255.0
 
 # Build the ANN model
 model = Sequential([
-    Flatten(input_shape=(28, 28)),
+    Flatten(input_shape=(28, 28)), #reduce to one dimesnionsal vectors
     Dense(64, activation='relu'),
-    Dense(10, activation='softmax')
+    Dense(10, activation='softmax') # 10 output labels
 ])
 
 # Display model architecture
@@ -36,7 +36,7 @@ history = model.fit(
     batch_size=32,
     validation_split=0.2,
     verbose=1
-)
+) # verbose=1 displays the progress bar while training 
 
 # Evaluate the model on test data
 test_loss, test_accuracy = model.evaluate(
